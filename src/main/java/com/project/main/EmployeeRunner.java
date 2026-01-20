@@ -31,13 +31,23 @@ public class EmployeeRunner {
 				.configure("hibernate.cfg.xml").build()).getMetadataBuilder().build()
 				.buildSessionFactory();
 		
-		
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		
 		
+		
 		session.persist(emp);
 		tx.commit();
+		
+//		Employee employee = session.find(Employee.class,9);
+//		System.out.println(employee);
+		
+//		
+//		Employee employee = new Employee();
+//		session.load(employee,5);;
+//		System.out.println(employee);
+
+
 	}
 	
 }
