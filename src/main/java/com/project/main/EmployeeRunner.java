@@ -3,6 +3,10 @@ package com.project.main;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import com.project.entity.Employee;
 
@@ -10,9 +14,24 @@ public class EmployeeRunner {
 
 	public static void main(String[] args){
 		
-		Employee emp = new Employee("ramu", "male", 055);
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		SessionFactory sessionFactory = cfg.buildSessionFactory();
+		Employee emp = new Employee("ranu", "male", 5055);
+		
+		
+//		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+//		SessionFactory sessionFactory = cfg.buildSessionFactory();
+//		SessionFactory sessionFactory =  new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+//		SessionFactory sessionFactory =  new Configuration().configure().buildSessionFactory();
+		
+//		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+//		Metadata metadata = new MetadataSources(ssr).getMetadataBuilder().build();
+//		SessionFactory sessionFactory = metadata.buildSessionFactory();
+		 
+		
+		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder()
+				.configure("hibernate.cfg.xml").build()).getMetadataBuilder().build()
+				.buildSessionFactory();
+		
+		
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		
