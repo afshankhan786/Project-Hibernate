@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Entity(name="empp")
 public class Employee {
@@ -15,6 +16,8 @@ public class Employee {
 	private String name;
 	private String gender;
 	private int salary;
+	@Transient
+	private String country;
 	
 	
 	public Employee() {
