@@ -16,6 +16,15 @@ import com.project.config.EmpConfiguration;
 import com.project.entity.Employee;
 
 public class EmployeeRunner {
+	
+	public static void delById(int id, Session session) {
+		
+//		HQL delete query
+		MutationQuery query=session.createMutationQuery("delete from empp where id = :id");  
+		query.setParameter("id", 4);
+		query.executeUpdate();  
+		
+	}
 
 	public static void main(String[] args){
 		
@@ -72,7 +81,6 @@ public class EmployeeRunner {
 //		List list=query1.list();  
 //		System.out.println(list);
 		
-
 
 		tx.commit();
 		session.close();
