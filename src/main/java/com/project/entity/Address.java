@@ -13,9 +13,8 @@ public class Address {
 	private String city,state;
 	
 	
-	public Address(int hNo, String city, String state) {
+	public Address(String city, String state) {
 		super();
-		this.hNo = hNo;
 		this.city = city;
 		this.state = state;
 	}
