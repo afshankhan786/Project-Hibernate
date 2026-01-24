@@ -18,7 +18,7 @@ public class Employee {
 	private String gender;
 	private int salary;
 
-	@OneToOne
+	@OneToOne(mappedBy = "employee")
 	@JoinColumn(name = "Add_id")
 	private Address address;
 	

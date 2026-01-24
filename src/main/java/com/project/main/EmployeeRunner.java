@@ -20,8 +20,17 @@ public class EmployeeRunner {
 	public static void main(String[] args){
 		
 
-		Employee emp = new Employee("Vimla", "FeMale", 64548);		
-		Address add = new Address("Noida","UP");
+		Employee emp = new Employee();
+		emp.setName("Bimla");
+		emp.setGender("Male");
+		emp.setSalary(50000);
+		
+		
+		Address add = new Address();
+		add.setCity("GZB");
+		add.setState("UP");
+		add.setEmployee(emp);
+		
 		
 		emp.setAddress(add);
 		
@@ -34,11 +43,15 @@ public class EmployeeRunner {
 		tx.commit();
 		
 		
-//		Query<Employee> query = session.createQuery("from empp",Employee.class);
-//		System.out.println(query.list());
-
-
-
+		Employee employee = session.find(Employee.class, 1);
+		System.out.println(employee);
+		System.out.println(employee.getAddress());
+		
+		
+		Address address = session.find(Address.class, 1);
+		System.out.println(address);
+		System.out.println(address.getEmployee());
+		
 	}
 	
 }
