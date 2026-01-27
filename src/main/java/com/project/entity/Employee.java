@@ -1,15 +1,18 @@
 package com.project.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
 
-@Entity(name="empp")
+@Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +20,9 @@ public class Employee {
 	private String name;
 	private String gender;
 	private int salary;
-
-	@OneToOne(mappedBy = "employee")
-	@JoinColumn(name = "Add_id")
-	private Address address;
+   
+	@OneToMany
+	private List<Address> addresses;
 	
 	public Employee() {
 		super();
@@ -34,13 +36,17 @@ public class Employee {
 	}
 
 
-	public Address getAddress() {
-		return address;
+	
+
+
+
+	public List<Address> getAddresses() {
+		return addresses;
 	}
 
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
 
@@ -86,8 +92,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + ", address="
-				+ address + "]";
+		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", salary=" + salary + ", addresses="
+				+ addresses + "]";
 	}
 
 }

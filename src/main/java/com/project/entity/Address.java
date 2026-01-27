@@ -13,9 +13,6 @@ public class Address {
 	private int hNo;
 	private String city,state;
 	
-	@OneToOne
-	private Employee employee;
-	
 	
 	public Address(String city, String state) {
 		super();
@@ -30,15 +27,6 @@ public class Address {
 	}
 
 	
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
 
 
 	public int gethNo() {
