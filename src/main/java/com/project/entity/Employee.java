@@ -2,6 +2,7 @@ package com.project.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Employee {
 	private String gender;
 	private int salary;
    
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Address> addresses;
 	
 	public Employee() {
