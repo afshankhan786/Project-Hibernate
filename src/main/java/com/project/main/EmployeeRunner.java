@@ -25,8 +25,13 @@ public class EmployeeRunner {
 //		emp.setName("Bimla");
 //		emp.setGender("Male");
 //		emp.setSalary(50000);
-//		
-//		
+		
+//		Employee emp = new Employee();
+//		emp.setName("suman");
+//		emp.setGender("feMale");
+//		emp.setSalary(80000);
+		
+		
 //		Address add1 = new Address();
 //		add1.setCity("GZB");
 //		add1.setState("UP");
@@ -36,7 +41,11 @@ public class EmployeeRunner {
 //		Address add3 = new Address();
 //		add3.setCity("Lucknow");
 //		add3.setState("UP");
-//		
+		
+//		Address add1 = new Address();
+//		add1.setCity("Lucknow");
+//		add1.setState("UP");
+		
 //		ArrayList<Address> listofAddresses = new ArrayList<>();
 //		listofAddresses.add(add1);
 //		listofAddresses.add(add2);
@@ -53,7 +62,7 @@ public class EmployeeRunner {
 //		session.persist(emp);
 //		tx.commit();
 		
-		Employee employee = session.find(Employee.class, 1);
+		Employee employee = session.find(Employee.class, 2);
 		System.out.println(employee);
 		System.out.println(employee.getAddresses());
 
