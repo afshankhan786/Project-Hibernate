@@ -19,32 +19,29 @@ import com.project.entity.Employee;
 public class EmployeeRunner {
 	
 	public static void main(String[] args){
-		
 
 //		Employee emp = new Employee();
 //		emp.setName("Bimla");
 //		emp.setGender("Male");
 //		emp.setSalary(50000);
-		
-//		Employee emp = new Employee();
-//		emp.setName("suman");
-//		emp.setGender("feMale");
-//		emp.setSalary(80000);
-		
+			
 		
 //		Address add1 = new Address();
 //		add1.setCity("GZB");
 //		add1.setState("UP");
+//		add1.setEmployee(emp);
+//		
 //		Address add2 = new Address();
 //		add2.setCity("GZB");
 //		add2.setState("UP");
+//		add2.setEmployee(emp);
+//		
 //		Address add3 = new Address();
 //		add3.setCity("Lucknow");
 //		add3.setState("UP");
+//		add3.setEmployee(emp);
 		
-//		Address add1 = new Address();
-//		add1.setCity("Lucknow");
-//		add1.setState("UP");
+
 		
 //		ArrayList<Address> listofAddresses = new ArrayList<>();
 //		listofAddresses.add(add1);
@@ -55,17 +52,23 @@ public class EmployeeRunner {
 		
 		
 		Session session =  EmpConfiguration.getSessionFactory().openSession();
-//		Transaction tx = session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 //		session.persist(add1);
 //		session.persist(add2);
 //		session.persist(add3);
 //		session.persist(emp);
 //		tx.commit();
 		
-		Employee employee = session.find(Employee.class, 2);
-		System.out.println(employee);
-		System.out.println(employee.getAddresses());
-
+//		Employee employee = session.find(Employee.class, 1);
+//		System.out.println(employee);
+//		System.out.println(employee.getAddresses());
+		
+		
+		Address address = session.find(Address.class,2);
+		System.out.println(address);
+		System.out.println(address.getEmployee());
+		
+		
 	}
 	
 }

@@ -37,9 +37,7 @@ public class Employee {
 
 
 	
-
-
-
+	
 	public List<Address> getAddresses() {
 		return addresses;
 	}
