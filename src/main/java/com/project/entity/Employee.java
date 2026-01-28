@@ -24,6 +24,8 @@ public class Employee {
 	@OneToMany
 	private List<Address> addresses;
 	
+	
+	
 	public Employee() {
 		super();
 	}
